@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Modify the directory form view to add the download button -->
+    <record id="view_dms_directory_form_inherit_zip" model="ir.ui.view">
+        <field name="name">dms.directory.form.inherit.zip</field>
+        <field name="model">dms.directory</field>
+        <field name="inherit_id" ref="dms.view_dms_directory_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_download_zip" type="object" 
+                        class="oe_stat_button" icon="fa-download"
+                        string="Download ZIP"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add button to directory kanban view -->
+    <record id="view_dms_directory_kanban_inherit_zip" model="ir.ui.view">
+        <field name="name">dms.directory.kanban.inherit.zip</field>
+        <field name="model">dms.directory</field>
+        <field name="inherit_id" ref="dms.view_dms_directory_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_kanban_bottom_right')]" position="inside">
+                <a type="object" name="action_download_zip" class="btn btn-sm btn-primary ml-2">
+                    <i class="fa fa-download"/> ZIP
+                </a>
+            </xpath>
+        </field>
+    </record>
+</odoo>
