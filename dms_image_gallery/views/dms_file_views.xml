@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add Image Gallery button to file form view -->
+    <record id="view_dms_file_form_inherit_image_gallery" model="ir.ui.view">
+        <field name="name">dms.file.form.inherit.image.gallery</field>
+        <field name="model">dms.file</field>
+        <field name="inherit_id" ref="dms.view_dms_file_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_image" type="object"
+                        class="oe_stat_button" icon="fa-picture-o"
+                        string="View Image" attrs="{'invisible':[('is_image','=',False)]}"/>
+            </xpath>
+            <xpath expr="//field[@name='mimetype']" position="after">
+                <field name="is_image" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+    
+    <!-- Add Image Gallery button to file kanban view -->
+    <record id="view_dms_file_kanban_inherit_image_gallery" model="ir.ui.view">
+        <field name="name">dms.file.kanban.inherit.image.gallery</field>
+        <field name="model">dms.file</field>
+        <field name="inherit_id" ref="dms.view_dms_file_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('mk_file_kanban_operations')]/h6" position="after">
+                <a role="menuitem" name="action_view_image" type="object" 
+                   t-if="record.is_image.raw_value" class="dropdown-item">
+                    <i class="fa fa-picture-o"/> View Image
+                </a>
+            </xpath>
+            <xpath expr="//field[@name='mimetype']" position="after">
+                <field name="is_image"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

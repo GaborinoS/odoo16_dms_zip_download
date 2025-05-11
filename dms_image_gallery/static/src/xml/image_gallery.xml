@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Template angepasst für Odoo 16 -->
+<templates xml:space="preserve">
+    <t t-name="dms_image_gallery.DmsImageGallery">
+        <div class="o_dms_image_gallery">
+            <div class="o_dms_image_gallery_header">
+                <div class="o_dms_image_gallery_title">
+                    <span t-esc="widget.currentImageName"/> <span class="text-muted">(<t t-esc="widget.currentImageIndex + 1"/>/<t t-esc="widget.images.length"/>)</span>
+                </div>
+                <div class="o_dms_image_gallery_controls">
+                    <button class="btn btn-sm btn-primary o_dms_image_zoom_in" title="Zoom In">
+                        <i class="fa fa-search-plus"/>
+                    </button>
+                    <button class="btn btn-sm btn-primary o_dms_image_zoom_out" title="Zoom Out">
+                        <i class="fa fa-search-minus"/>
+                    </button>
+                    <button class="btn btn-sm btn-primary o_dms_image_zoom_reset" title="Reset Zoom">
+                        <i class="fa fa-refresh"/>
+                    </button>
+                    <button class="btn btn-sm btn-primary o_dms_image_slideshow" title="Slideshow">
+                        <i class="fa fa-play"/>
+                    </button>
+                    <button class="btn btn-sm btn-primary o_dms_image_download" title="Download">
+                        <i class="fa fa-download"/>
+                    </button>
+                    <button class="btn btn-sm btn-danger o_dms_image_close" title="Close">
+                        <i class="fa fa-close"/>
+                    </button>
+                </div>
+            </div>
+            <div class="o_dms_image_gallery_content">
+                <div class="o_dms_image_gallery_nav o_dms_image_gallery_nav_prev">
+                    <button class="btn btn-primary o_dms_image_prev">
+                        <i class="fa fa-chevron-left"/>
+                    </button>
+                </div>
+                <div class="o_dms_image_gallery_container">
+                    <img class="o_dms_image_main" t-att-src="widget.currentImageUrl"/>
+                </div>
+                <div class="o_dms_image_gallery_nav o_dms_image_gallery_nav_next">
+                    <button class="btn btn-primary o_dms_image_next">
+                        <i class="fa fa-chevron-right"/>
+                    </button>
+                </div>
+            </div>
+            <div class="o_dms_image_gallery_footer">
+                <div class="o_dms_image_thumbnails">
+                    <t t-foreach="widget.images" t-as="image">
+                        <div t-att-class="'o_dms_image_thumbnail' + (image.id === widget.currentImageId ? ' active' : '')" 
+                             t-att-data-id="image.id">
+                            <img t-att-src="image.url" t-att-alt="image.name" />
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,112 @@
+.o_dms_image_gallery {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.o_dms_image_gallery_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.o_dms_image_gallery_title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.o_dms_image_gallery_controls .btn {
+    margin-left: 5px;
+}
+
+.o_dms_image_gallery_content {
+    flex: 1;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.o_dms_image_gallery_container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 100%;
+}
+
+.o_dms_image_main {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.o_dms_image_gallery_nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.o_dms_image_gallery_nav_prev {
+    left: 10px;
+}
+
+.o_dms_image_gallery_nav_next {
+    right: 10px;
+}
+
+.o_dms_image_gallery_nav .btn {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.o_dms_image_gallery_nav .btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.o_dms_image_gallery_footer {
+    padding: 10px 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.o_dms_image_thumbnails {
+    display: flex;
+    overflow-x: auto;
+    gap: 5px;
+    padding: 5px 0;
+}
+
+.o_dms_image_thumbnail {
+    flex: 0 0 auto;
+    width: 80px;
+    height: 80px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.o_dms_image_thumbnail.active {
+    border-color: #00A09D;
+}
+
+.o_dms_image_thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
